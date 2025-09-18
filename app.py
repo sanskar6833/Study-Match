@@ -8,9 +8,12 @@ import pandas as pd
 import os
 
 scope = ["https://spreadsheets.google.com/feeds","https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name(r"study-match-472521-47523ea90eb3.json", scope)
+service_account_info = st.secrets["google_service_account"]
+creds = ServiceAccountCredentials.from_json_keyfile_dict(service_account_info, scope)
 client = gspread.authorize(creds)
-sheet = client.open("StudyMatchRegistrations").sheet1 
+sheet = client.open("StudyMatchRegistrations").sheet1
+
+
 st.set_page_config(
     page_title="Study Match",  # This is the title that appears on the browser tab
     page_icon="🎓",            # Optional: an emoji or icon
