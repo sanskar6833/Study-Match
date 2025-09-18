@@ -8,7 +8,7 @@ import pandas as pd
 import os
 
 scope = ["https://spreadsheets.google.com/feeds","https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name("service_account.json", scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name(r"study-match-472521-47523ea90eb3.json", scope)
 client = gspread.authorize(creds)
 sheet = client.open("StudyMatchRegistrations").sheet1 
 st.set_page_config(
