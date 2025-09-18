@@ -76,7 +76,7 @@ if st.session_state.page == "home":
     st.markdown("<h3 style='text-align:center; color:#1f77b4;'>Ready to start your study journey?</h3>", unsafe_allow_html=True)
     if st.button("Let's Go"):
         st.session_state.page = "registration"
-
+        st.rerun()
 # -----------------------------
 # REGISTRATION PAGE
 # -----------------------------
