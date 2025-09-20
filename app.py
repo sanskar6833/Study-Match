@@ -44,7 +44,11 @@ def load_lottie_url(url):
 if "page" not in st.session_state:
     st.session_state.page = "home"
 
-# HOME PAGE
+def go_to_registration():
+    st.session_state.page = "registration"
+
+
+
 if st.session_state.page == "home":
     st.title("🎓 Welcome to Study Match")
     st.subheader("Find Your Perfect Study Partner!")
@@ -72,14 +76,18 @@ if st.session_state.page == "home":
             st.image("study_image.png", caption="Collaborate & Learn", use_column_width=True)
 
     st.markdown("<h3 style='text-align:center; color:#1f77b4;'>Ready to start your study journey?</h3>", unsafe_allow_html=True)
-    if st.button("Let's Go"):
     
-        st.session_state.page="registration"
-       
-    
+   
+if st.session_state.page == "home":
+    left,centre,right=st.columns(3)
 
-
-elif st.session_state.page=="registration":
+    with centre:
+        st.button("🚀Register Here",type="primary", on_click=go_to_registration)
+        
+# -----------------------------
+# REGISTRATION PAGE
+# -----------------------------
+elif st.session_state.page == "registration":
     st.title("Register Yourself With Us")
 
     with st.form("registration_form", clear_on_submit=True):
@@ -124,6 +132,4 @@ elif st.session_state.page=="registration":
                 except Exception as e:
                     st.error(f"An error occurred while saving your data: {e}")
                     st.session_state.page = "home"
-
-
 
