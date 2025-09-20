@@ -125,3 +125,5 @@ elif st.session_state.page=="registration":
                     st.error(f"An error occurred while saving your data: {e}")
                     st.session_state.page = "home"
 
+
+
