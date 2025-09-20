@@ -103,7 +103,7 @@ elif st.session_state.page == "registration":
         gender = st.selectbox("Gender", ["Male", "Female"])
         instagram = st.text_input("Instagram Username")
         age = st.number_input("Enter your age", min_value=0, max_value=150)
-        goals = st.text_area("Goals in future")
+        goals = st.text_area("Goals in future",placeholder="Optional")
 
         submit = st.form_submit_button("Submit")
 
