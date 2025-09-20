@@ -44,9 +44,11 @@ def load_lottie_url(url):
 if "page" not in st.session_state:
     st.session_state.page = "home"
 
-# -----------------------------
-# HOME PAGE
-# -----------------------------
+def go_to_registration():
+    st.session_state.page = "registration"
+
+
+
 if st.session_state.page == "home":
     st.title("🎓 Welcome to Study Match")
     st.subheader("Find Your Perfect Study Partner!")
@@ -74,9 +76,14 @@ if st.session_state.page == "home":
             st.image("study_image.png", caption="Collaborate & Learn", use_column_width=True)
 
     st.markdown("<h3 style='text-align:center; color:#1f77b4;'>Ready to start your study journey?</h3>", unsafe_allow_html=True)
-    if st.button("Let's Go"):
-        st.session_state.page = "registration"
-        st.rerun()
+    
+   
+if st.session_state.page == "home":
+    left,centre,right=st.columns(3)
+
+    with centre:
+        st.button("🚀Register Here",type="primary", on_click=go_to_registration)
+        
 # -----------------------------
 # REGISTRATION PAGE
 # -----------------------------
