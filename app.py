@@ -81,7 +81,7 @@ if st.session_state.page == "home":
 if st.session_state.page == "home":
     left,centre,right=st.columns(3)
 
-    with centre:
+    with right:
         st.button("🚀Register Here",type="primary", on_click=go_to_registration)
         
 # -----------------------------
